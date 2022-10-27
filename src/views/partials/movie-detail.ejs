@@ -1,0 +1,52 @@
+<% const imageUrl = 'https://image.tmdb.org/t/p/w500/' %>
+
+<main class="main">
+    <div>
+        <%- include('../components/backButton.ejs') %>
+    </div>
+    <div>
+        <% const id = detalle.id %> 
+        <% const title = detalle.title %> 
+        <% const path = detalle.poster_path %> 
+        <% const vote_average = detalle.vote_average %> 
+        <% const genres = detalle.movies_categories.length > 0 ? detalle.movies_categories[0].categories.name : "Dont have category"%> 
+        <div class="mcc-table__btn--add" id="<%= JSON.stringify({id, title, path, vote_average,  genres}) %>">Add To Cart</div>
+    </div>
+</main>
+<div class="main-card">
+    <section class="img-section">
+        <figure class="main-figure">
+            <img
+            src="<%= (detalle.poster_path).includes('.com') ? detalle.poster_path : (imageUrl + detalle.poster_path) %>"
+                alt="poster"
+            />
+            <div class="gradient"></div>
+        </figure>
+        <div class="sec-info-section">
+            <div class="sec-info-card">
+                <span class="sec-info"> <%= detalle.runtime %> min</span>
+                <span class="sec-info"> <% if(detalle.languages.name == "EN") { %> English <% } else{ %> Español <% } %> </span>
+            </div>
+            <div class="sec-info-card">
+                <span class="sec-info"><% if(detalle.adult == 1){ %> 18+ <% } else{ %> All <%} %></span>
+            </div>
+        </div>
+    </section>
+    <section class="main-info-section">
+        <div class="main-info-header">
+            <span class="main-info-title"> <%= detalle.title %></span>
+            <div class="cart-btn"></div>
+        </div>
+        <div class="main-info-subtitle">
+            <span> <% for(var i = 0; i < detalle.movies_categories.length; i++) { %>
+                | <%= detalle.movies_categories[i].categories.name %> 
+              <% }  %> </span>
+            <star-rating rating="7.2"></star-rating>
+        </div>
+        <div class="main-info-slot">
+            <%- include('../components/infoSwitcher.ejs') %>
+        </div>
+    </section>
+</div>
+
+

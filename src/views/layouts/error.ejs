@@ -1,0 +1,22 @@
+<%- include('../partials/head', {title : 'Index'}) %>
+
+<link rel="stylesheet" href="/public/styles/main.css">
+<link rel="stylesheet" href="/public/styles/error.css">
+
+<main class="err-container">
+    <div class="err-container__message">
+        <p class="err-message__status">
+            Error <%= typeof status != 'undefined' ? status : '404' %>
+        </p>
+        <p class="err-message__error">
+            <%= typeof error != 'undefined' ? ': ' + error : '.' %>
+        </p>
+        <% if (typeof action != 'undefined') { %>
+            <% if (action == 'login') { %>
+                <p class="err-message__action">Para continuar, ingrese <a href="/login">AQUÍ</a></p>
+            <% } %>
+        <% } %>
+    </div>
+</main>
+<%- include('../partials/body') %>
+<%- include('../partials/foot') %>

@@ -1,0 +1,13 @@
+<% source = '/public/assets/icons/icon_star.svg' %>
+
+<% if (vote_average) { %>
+    <figure class="sc-item__stars" title="<%= vote_average %>">
+        <% for (let i = 2; i <= 10; i += 2) { %>
+            <% if (i <= vote_average) { %>
+                <img src="<%= source %>" alt="star" class="sc-item__star sc-item__star--purple">
+            <% } else { %>
+                <img src="<%= source %>" alt="star" class="sc-item__star sc-item__star--gray">
+            <% } %>
+        <% } %>
+    </figure>
+<% } %>

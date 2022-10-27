@@ -1,0 +1,13 @@
+<%- include('../partials/head', {title : 'Register', style: 'login.css'}) %>
+<link href="/public/styles/navbar.css" rel="stylesheet">
+<%- include('../partials/body') %>
+<%- include('../components/navBar.ejs') %>
+
+<%- include('../components/register.ejs') %>
+
+<script src="/public/scripts/validatePass.js"></script> 
+<script src="/public/scripts/redirectLogin.js"></script>
+<script src="/public/scripts/redirectHome.js"></script> 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<%- include('../partials/foot') %>

@@ -1,0 +1,15 @@
+<% result.forEach((row)=>{ %>
+    <% if (row.transaction_detail.length > 0) { %>
+    <div class="component--order" id="<%= row.transaction_detail[0].transaction_id %>">
+        <div class="component--order__size">
+            <div>
+                <%= row.create_date %>
+            </div>
+            <div>
+                <%= row.transaction_detail.length %> movies
+            </div>
+            
+        </div><img src="/public/assets/icons/angle-small-right-free-icon-font.svg" width="30px">
+    </div> <br>
+    <% } %>
+<% }); %>

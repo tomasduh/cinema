@@ -1,0 +1,72 @@
+/* *******************  MAIN *******************/
+
+/* *******************  HEADER *******************/
+.header-logo{
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: left;
+    width: 100%;
+    height: 100%;
+}
+
+/* *******************  HISTORY *******************/
+.contenedor__history{
+    /* padding-top: 1px; */
+    background-color: var(--purple-bg);
+    min-height: 100vh;
+}
+
+.history__section{
+    position: relative;
+    padding-top: 25px;
+    height: 80%;
+    width: 450px;
+    display: flex;
+    margin: auto;
+    color: var(--white);
+}
+
+.history__section--orders {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--purple-input);
+    color: white;
+    width: 100%;
+    /* height: 80vh; */
+    padding: 30px 20px 30px;
+    overflow-y: auto;
+    border-radius: 15px;
+    font-size: 20px;
+}
+
+.history__flecha--retroceso{
+    margin: 30px 20px 0px 0px;
+}
+
+.history__section--orders--items {
+    margin: 5px 2px;
+}
+
+.history__section--orders--word {
+    background-color: var(--purple-input);
+    float: inherit;
+}
+
+.myorderDirection {
+    cursor: pointer;
+}
+
+.history__section--orders--shopping {
+    border-radius: 15px;
+    padding: 5px;
+    font-size: 10px;
+    margin: 40px 0px;
+    background-color: transparent;
+
+}
+
+
+
+
+

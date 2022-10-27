@@ -1,0 +1,40 @@
+<div class="name__category">
+    <p id="nameCategory"></p>
+</div>
+<div class="contenedor--movies">
+    <% if (result !=0) { %>
+        
+        <% result.forEach(function(row) { %>
+            <% if (row.movies) { %>
+                <div class="contenedor--movies--card">
+                    <%- include('../components/movieCardComponent.ejs', {
+                    id: row.movies.id,
+                    title: row.movies.title,
+                    overview: row.movies.overview,
+                    genres: row.categories.name,
+                    path: row.movies.poster_path,
+                    vote_average: row.movies.vote_average,
+                    user: user
+                    }) %>
+                </div>
+            <% } else { %>
+                <div class="contenedor--movies--card">
+                    <%- include('../components/movieCardComponent.ejs', {
+                    id: row.id,
+                    title: row.title,
+                    overview: row.overview,
+                    genres: row.movies_categories,
+                    path: row.poster_path,
+                    vote_average: row.vote_average,
+                    user: user
+                    }) %>
+                </div>
+            <% } %>
+        <% }); %>
+
+    <% } else { %>
+        <div class="mensaje">
+            <h3>No se encontraron resultados</h3>
+        </div>
+    <% } %>
+</div>

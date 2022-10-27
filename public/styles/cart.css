@@ -1,0 +1,118 @@
+/*  HISTORY */
+.history__nav {
+    background-color: var(--purple-dark);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.history__nav--logo {
+    padding-left: 40px;
+    background-color: var(--purple-dark);
+}
+
+.history__nav--email {
+    padding-right: 60px;
+    color: #6E25AD;
+    background-color: var(--purple-dark);
+    font-size: 15px;
+    margin: auto 0px;
+}
+
+.history__nav--flecha {
+    padding-left: 10px;
+}
+
+.history__flecha--retroceso {
+    margin-right: 40px;
+    margin-top: 30px;
+}
+
+.history__section {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 50px 0px;
+}
+
+.history__section--orders {
+    background-color: var(--purple-input);
+    color: white;
+    width: 400px;
+    height: 400px;
+    padding: 30px 20px 30px;
+    overflow-y: auto;
+    border-radius: 15px;
+}
+
+.history__section--orders--word {
+    background-color: var(--purple-input);
+    float: inherit;
+}
+
+.history__section--orders--shopping {
+    border-radius: 15px;
+    padding: 5px;
+    font-size: 10px;
+    margin: 40px 0px;
+    background-color: transparent;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 10px; */
+}
+
+
+.history__section--orders--items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+/* --------------- */
+/* HEADER */
+/* --------------- */
+
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    padding: 11px 27px;
+    height: 100px;
+    background-color: var(--purple-dark);
+}
+
+/* --------------- */
+/* MAIN */
+/* --------------- */
+
+/*     MyOrder     */
+
+
+/*     Order content     */
+
+
+
+/*     Order card list     */
+
+
+/*     Cart Product     */
+
+
+
+/*     Stars rating     */
+
+
+/*  HISTORY */
+
+
+/*  LOGIN */
+
+
+/*     ORDER DETAILS   */
+
+
+/*  MODAL*/

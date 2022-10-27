@@ -1,0 +1,25 @@
+<% const imageUrl = 'https://image.tmdb.org/t/p/w500/' %>
+
+<div class="contenedor-carousel2">
+    <div class="carousel2">
+        <div class="carousel__contenedor2">
+            <div class="carousel__lista2" id="glider2">
+                <% actors.forEach((actor) =>{
+                    if (actor.credits != 0) {
+                    actor.credits.forEach((result) => {%>
+                        <div class="carousel__elemento2" >
+                            <img src="<%- result.actors.profile_path != null ? ((result.actors.profile_path).includes('.com') ? result.actors.profile_path : (imageUrl + result.actors.profile_path )) : '/public/assets/img/no_content_available.jpg'  %>" alt="<%= result.actors.name %>">
+                            <div class="titulo2">
+                                <p class="carousel__titulo2"> <%= result.actors.name %></p>
+                            </div>                         
+                        </div>
+                    <%})  } else{ %>
+                        <h1>No se encontraron resultados</h1>
+                    <% } 
+                }) %>
+            </div>            
+        </div>
+        
+        <div role="tablist" id="dots2" class="carousel__indicadores2"></div>
+    </div>
+</div>

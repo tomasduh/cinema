@@ -1,0 +1,44 @@
+<% const imageUrl = 'https://image.tmdb.org/t/p/w500/' %>
+
+<div class="mcc-grid__card">
+    <figure class="mcc-card__cover">
+        <button class="mcc-go-to-detail" id="<%= id %>">
+            <img
+                src="<%= path.includes('.com') ? path : (imageUrl + path) %>"
+                alt="<%= typeof title != 'undefined' ? title : 'untitled' %>"
+                class="mcc-card__poster">
+            <span class="mcc-card__title">
+                <%= typeof title != 'undefined' ? title : 'untitled' %>
+            </span>
+            <span class="mcc-card__overview">
+                <p class="mcc-card__text">
+                    <%= typeof overview != 'undefined' ? overview : 'overview not found' %>
+                </p>
+            </span>
+        </button>
+    </figure>
+    <div class="mcc-card__table">
+        <div class="mcc-table__header">
+            <% if (typeof genres == 'object' || typeof genres == 'array') { %>
+                <p class="mcc-table__genre" title="<%=  genres.join(', ') %>">
+                    <% if (genres.length == 0 ){%>
+                        <%= "Dont have category" %>
+                    <%}else{ %>
+                    <% for( let index = 0; index < 2; index++ ) { %>
+                            <% if (genres.length <= 1) { %>
+                            <%= genres[index] %>
+                        <% } else { %>
+                            <%= (index < 1) ? genres[index] + ', ' : genres[index] %>
+                        <% } %>
+                    <% }} %>
+                </p>
+            <% } else { %>
+                <p class="mcc-table__genre" title="<%=  genres %>">
+                    <%= genres %>
+                </p>
+            <% } %>
+            <%- include('./starsComponent.ejs', {vote_average: vote_average}) %>
+        </div> 
+        <div class="mcc-table__btn--add"  id="<%= JSON.stringify({id, title, path, vote_average,  genres}) %>">Add To Cart</div>
+    </div>
+</div>

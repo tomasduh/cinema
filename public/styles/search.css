@@ -1,0 +1,16 @@
+.search{
+    padding: 11px;
+    font-size: 16px;
+    color: #C7C7C7;
+    width: 360px;
+    border: none;
+    border-radius: 10px;
+    border-color: #7B2ABF;
+    background-color: #110E35;
+}
+
+.filtros {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+}

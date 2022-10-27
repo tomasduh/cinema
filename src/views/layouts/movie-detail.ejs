@@ -1,0 +1,48 @@
+<%- include('../partials/head', {title : 'Movie Detail', style:
+'movieDetail.css'}) %>
+
+<link rel="stylesheet" href="/public/styles/shoppingCart.css" />
+<link href="/public/styles/navbar.css" rel="stylesheet" />
+<link rel="stylesheet" href="/public/styles/styleGlobal.css" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.6.6/glider.css" integrity="sha512-rEnjEH5u8xKS8NLcXC4nuZwT89x+tMB19ddbolNGE7DTl6o3JEo11kHAwryLlALFnxdONjO4xVpjunLWdiZR1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<%- include('../partials/body') %>
+
+<%- include('../components/navbar.ejs') %>
+
+<main class="movie-detail__container">
+    <div class="shoppingCart">
+        <%- include('../components/shoppingCartComponent.ejs') %>
+    </div>
+
+    <%- include('../partials/movie-detail') %>
+</main>
+
+<% if (user.id == 0) { %>
+<script src="/public/scripts/redirectLogin.js"></script>
+<script src="/public/scripts/redirectRegister.js"></script>
+<% } %>
+<script src="/public/scripts/infoSwitcher.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.6.6/glider.min.js"
+    integrity="sha512-RidPlemZ+Xtdq62dXb81kYFycgFQJ71CKg+YbKw+deBWB0TLIqCraOn6k0CWDH2rGvE1a8ruqMB+4E4OLVJ7Dg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+></script>
+<script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.6.6/glider.min.js"
+    integrity="sha512-RidPlemZ+Xtdq62dXb81kYFycgFQJ71CKg+YbKw+deBWB0TLIqCraOn6k0CWDH2rGvE1a8ruqMB+4E4OLVJ7Dg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+></script>
+<script src="/public/scripts/carousel.js"></script>
+<script src="/public/scripts/shoppingCart.js"></script>
+<script src="/public/scripts/checkButton.js"></script>
+<script src="/public/scripts/movieCardComponent.js"></script>
+<script src="/public/scripts/backButton.js"></script>
+
+<%- include('../partials/foot') %>

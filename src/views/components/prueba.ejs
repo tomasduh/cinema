@@ -1,0 +1,116 @@
+<div class="container-info">
+  <div class="button">
+    <button id="next" class="btn">Next Section</button>
+  </div>
+
+  <div id="synopsis" class="container-switcher">
+    <h1>Synopsis</h1>
+    <%- include('./synopsis.ejs') %>
+  </div>
+
+  <div id="trailer" class="container-switcher">
+    <h1>Trailer</h1>
+    <%- include('./movieTrailer.ejs') %>
+  </div>
+
+  <div id="recommended" class="container-switcher">
+    <h1>Recommended</h1>
+    <%- include('./carousel.ejs') %>
+  </div>
+
+  <div id="casting" class="container-switcher">
+    <h1>Casting</h1>
+    <%- include('./carousel-actor.ejs') %>
+  </div>
+</div>
+
+<style>
+  .container-info {
+    width: 100%;
+    height: 100%;
+    background-color: #02021c;
+    text-align: center;
+  }
+
+  .container-switcher {
+    text-align: center;
+    color: #fff;
+    width: 1000px;
+    height: 100%;
+    /* overflow: hidden;
+    -webkit-transition: all 700ms ease-out;
+    -moz-transition: all 700ms ease-out;
+    transition: all 700ms ease-out; */
+  }
+
+  .active {
+    display: block;
+  }
+  /* .button{
+    position: fixed;
+    margin-bottom: 15px;
+  } */
+  .button{
+    margin-top: 32%;
+    margin-left: 32%;
+    position: fixed;
+  }
+
+  .btn {
+    border-radius: 6px;
+    outline: none;
+    border: none;
+    color: white;
+    background: none;
+    
+    
+  }
+  .btn:hover{
+    color: #7B2ABF;
+    transition: ease-in .4s;
+  }
+</style>
+
+<script>
+  const btn = document.getElementById("next");
+  const app = document.querySelectorAll(".container-switcher");
+  const padre = document.querySelector(".container-info");
+
+  let init = 0;
+
+  setTimeout(() => {
+    padre.removeChild(app[1]);
+    padre.removeChild(app[2]);
+    padre.removeChild(app[3]);
+  }, 01);
+
+  btn.addEventListener("click", () => {
+    if (init <= 2) {
+      padre.removeChild(app[init]);
+      init++;
+      padre.appendChild(app[init]);
+    } else {
+      padre.removeChild(app[init]);
+      init = 0;
+      padre.appendChild(app[init]);
+    }
+  });
+
+  //   btn.addEventListener("click", () => {
+  //     console.log(app);
+  //     if (init <= 3) {
+  //       console.log(init);
+  //       if (app[init].classList.contains("active")) {
+  //         init++;
+  //       } else {
+  //         app[init - 1].classList.remove("active");
+  //         app[init].classList.add("active");
+  //       }
+  //     } else {
+  //       console.log("menor", init);
+  //       app[init - 1].classList.remove("active");
+  //       init = 0;
+  //       app[init].classList.add("active");
+  //     }
+  //   });
+</script>

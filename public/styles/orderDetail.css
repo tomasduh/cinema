@@ -1,0 +1,125 @@
+/* Order view */
+
+.od-view {
+    background-color: var(--purple-bg);
+    width: 100%;
+    min-height: 100vh;
+}
+
+.od-container {
+    padding-top: 1px;
+    position: relative;
+    width: 100%;
+    padding-bottom: 1rem;
+}
+
+.od-order {
+    margin: 30px auto;
+    padding: 30px 20px;
+    width: 445px;
+    background-color: var(--purple-input);
+    box-shadow: 10px 10px 20px var(--purple-dark);
+}
+
+.od-order,
+.od-order__info,
+.od-item__cover,
+.od-list__link {
+    border-radius: 10px;
+}
+.od-order__title {
+    color: var(--white);
+    font-size: 18px;
+}
+
+.od-order__info {
+    margin-top: 46px;
+    margin-bottom: 25px;
+    padding: 16px 20px;
+    background-color: var(--purple-dark);
+}
+
+.od-info__date {
+    font-size: 16px;
+    color: var(--gray-primary);
+}
+
+.od-info__articles {
+    margin-top: 4px;
+    font-size: 14px;
+    color: var(--gray-secondary);
+    font-weight: 400;
+}
+
+.od-order__list,
+.od-list__item,
+.od-item__info,
+.od-item__stars,
+.od-item__genres {
+    display: flex;
+}
+.od-order__list {
+    gap: 24px;
+}
+
+.od-order__list,
+.od-item__info {
+    flex-direction: column;
+}
+
+.od-list__link {
+    position: relative;
+    text-decoration: none;
+    transition: all 150ms ease;
+}
+
+.od-list__link:hover {
+    background-color: var(--purple-dark);
+    opacity: .8;
+}
+
+/* Products */
+
+.od-list__item {
+    gap: 10px;
+}
+
+.od-list__item {
+    height: 100%;
+}
+
+.od-item__info {
+    width: calc(100% - 86px);
+    position: relative;
+    color: var(--white);
+    justify-content: space-around;
+}
+
+.od-item__title {
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: var(--gray-primary);
+    font-weight: 500;
+}
+
+.od-item__genre {
+    text-transform: capitalize;
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--gray-secondary);
+}
+
+.od-item__cover {
+    block-size: 76px;
+    inline-size: 76px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.od-item__img {
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

@@ -1,0 +1,163 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model actors {
+  id           Int       @id @default(autoincrement())
+  name         String    @db.VarChar(100)
+  profile_path String?   @db.VarChar(100)
+  credits      credits[]
+}
+
+model categories {
+  id                Int                 @id @default(autoincrement())
+  name              String              @db.VarChar(50)
+  movies_categories movies_categories[]
+}
+
+model certification {
+  id       Int        @id @default(autoincrement())
+  type     String     @db.VarChar(15)
+  releases releases[]
+}
+
+model companies {
+  id               Int                @id @default(autoincrement())
+  name             String             @db.VarChar(100)
+  country_id       Int
+  countries        countries          @relation(fields: [country_id], references: [id], onDelete: Cascade, map: "companies_ibfk_1")
+  companies_movies companies_movies[]
+
+  @@index([country_id], map: "country_id")
+}
+
+model companies_movies {
+  id         Int       @id @default(autoincrement())
+  movie_id   Int
+  company_id Int
+  movies     movies    @relation(fields: [movie_id], references: [id], onDelete: Cascade, map: "companies_movies_ibfk_1")
+  companies  companies @relation(fields: [company_id], references: [id], onDelete: Cascade, map: "companies_movies_ibfk_2")
+
+  @@index([company_id], map: "company_id")
+  @@index([movie_id], map: "movie_id")
+}
+
+model countries {
+  id        Int         @id @default(autoincrement())
+  name      String      @db.VarChar(40)
+  companies companies[]
+  releases  releases[]
+}
+
+model credits {
+  id              Int         @id @default(autoincrement())
+  movie_id        Int
+  actor_id        Int
+  department_id   Int?
+  actor_character String      @db.VarChar(50)
+  movies          movies      @relation(fields: [movie_id], references: [id], onDelete: Cascade, map: "credits_ibfk_1")
+  actors          actors      @relation(fields: [actor_id], references: [id], onDelete: Cascade, map: "credits_ibfk_2")
+  department      department? @relation(fields: [department_id], references: [id], onDelete: Cascade, map: "credits_ibfk_3")
+
+  @@index([actor_id], map: "actor_id")
+  @@index([department_id], map: "department_id")
+  @@index([movie_id], map: "movie_id")
+}
+
+model department {
+  id      Int       @id @default(autoincrement())
+  name    String    @db.VarChar(25)
+  credits credits[]
+}
+
+model languages {
+  id     Int      @id @default(autoincrement())
+  name   String   @db.VarChar(50)
+  movies movies[]
+}
+
+model movies {
+  id                 Int                  @id @default(autoincrement())
+  title              String               @db.VarChar(100)
+  overview           String?              @db.VarChar(250)
+  poster_path        String?              @db.VarChar(100)
+  release_date       DateTime?            @db.Date
+  popularity         Float?               @db.Float
+  vote_average       Float?               @db.Float
+  vote_count         Int?
+  adult              Boolean?
+  language_id        Int?
+  runtime            Int?                 @db.UnsignedTinyInt
+  video_key          String?              @db.VarChar(50)
+  languages          languages?           @relation(fields: [language_id], references: [id], onDelete: Cascade, map: "movies_ibfk_1")
+  companies_movies   companies_movies[]
+  credits            credits[]
+  movies_categories  movies_categories[]
+  releases           releases[]
+  transaction_detail transaction_detail[]
+
+  @@index([language_id], map: "language_id")
+}
+
+model movies_categories {
+  id          Int        @id @default(autoincrement())
+  movie_id    Int
+  category_id Int
+  movies      movies     @relation(fields: [movie_id], references: [id], onDelete: Cascade, map: "movies_categories_ibfk_1")
+  categories  categories @relation(fields: [category_id], references: [id], onDelete: Cascade, map: "movies_categories_ibfk_2")
+
+  @@index([category_id], map: "category_id")
+  @@index([movie_id], map: "movie_id")
+}
+
+model releases {
+  id               Int            @id @default(autoincrement())
+  movie_id         Int
+  country_id       Int?
+  certification_id Int?
+  release_date     DateTime?      @db.Date
+  movies           movies         @relation(fields: [movie_id], references: [id], onDelete: Cascade, map: "releases_ibfk_1")
+  countries        countries?      @relation(fields: [country_id], references: [id], onDelete: Cascade, map: "releases_ibfk_2")
+  certification    certification? @relation(fields: [certification_id], references: [id], onDelete: Cascade, map: "releases_ibfk_3")
+
+  @@index([certification_id], map: "certification_id")
+  @@index([country_id], map: "country_id")
+  @@index([movie_id], map: "movie_id")
+}
+
+model transaction_detail {
+  id             Int          @id @default(autoincrement())
+  movie_id       Int
+  transaction_id Int
+  quantity       Int
+  movies         movies       @relation(fields: [movie_id], references: [id], onDelete: Cascade, map: "transaction_detail_ibfk_1")
+  transactions   transactions @relation(fields: [transaction_id], references: [id], onDelete: Cascade, map: "transaction_detail_ibfk_2")
+
+  @@index([movie_id], map: "movie_id")
+  @@index([transaction_id], map: "transaction_id")
+}
+
+model transactions {
+  id                 Int                  @id @default(autoincrement())
+  user_id            Int
+  create_date        DateTime             @db.DateTime(0)
+  expiration_date    DateTime             @db.DateTime(0)
+  status             Boolean?
+  users              users                @relation(fields: [user_id], references: [id], onDelete: Cascade, map: "transactions_ibfk_1")
+  transaction_detail transaction_detail[]
+
+  @@index([user_id], map: "user_id")
+}
+
+model users {
+  id           Int            @id @default(autoincrement())
+  name         String         @db.VarChar(50)
+  email        String         @unique(map: "email") @db.VarChar(50)
+  password     String         @db.VarChar(100)
+  transactions transactions[]
+}

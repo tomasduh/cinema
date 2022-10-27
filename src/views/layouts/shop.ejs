@@ -1,0 +1,35 @@
+<%- include('../partials/head', {title : 'Movies'}) %>
+
+<link rel="stylesheet" href="/public/styles/home.css">
+
+<%- include('../partials/body') %>
+
+<div class="s-container">
+
+    <%- include('../components/navBar.ejs') %>
+    
+    <main class="s-content">
+        <div class="shoppingCart">
+            <%- include('../components/shoppingCartComponent.ejs') %>
+        </div>
+        <div class="s-filter">
+            <filter-bar><%- include('../components/search.ejs') %></filter-bar>
+        </div>
+    </main>
+    <%- include('main_shop.ejs') %>
+    <footer class="s-footer">
+        <%- include('../components/paginationComponent.ejs') %>
+    </footer>
+</div>
+
+<script src="/public/scripts/checkButton.js"></script>
+
+<% if (user.id == 0) { %>
+    <script src="/public/scripts/redirectLogin.js"></script>
+    <script src="/public/scripts/redirectRegister.js"></script>
+<% } %>
+<script src="/public/scripts/pagination.js"></script>
+<script src="/public/scripts/shoppingCart.js"></script>
+<script src="/public/scripts/movieCardComponent.js"></script>
+
+<%- include('../partials/foot') %>

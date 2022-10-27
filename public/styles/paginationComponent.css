@@ -1,0 +1,44 @@
+
+.pagination{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.page{ 
+    border: 1px solid #7B2ABF;
+    background-color: #02021C;
+    /* padding: 5px; */
+    padding-left: 5px;
+    color: white;
+    padding-right: 5px;
+    font-size: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+    cursor:pointer;
+    margin:5px;
+}
+
+.page.disabled{
+    cursor:not-allowed;
+    color:gray;
+}
+
+.current{
+    border: 1px solid #7B2ABF;
+    background-color: #02021C;
+    /* padding: 5px; */
+    padding-left: 5px;
+    color: gray;
+    padding-right: 5px;
+    font-size: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+    cursor:pointer;
+    margin:5px;
+}

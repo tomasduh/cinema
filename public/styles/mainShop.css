@@ -1,0 +1,90 @@
+
+/*************** HOME MOVIES *************/
+.contenedor--movies {
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1px;
+}
+
+.contenedor--movies--card {
+    width: fit-content;
+    text-align: center;
+    margin: auto;
+/*     background: linear-gradient(to top, #02021C, #02021C60 100%, #110E3500); */
+    border-radius: 15px;
+    margin: 20px;
+    overflow: auto;
+}
+
+.movie--description {
+    position: absolute;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.95);
+    height: 305px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    width: 300px;
+    overflow: hidden;
+    text-align: justify;
+    font-size: 12px;
+    opacity: 0;
+    margin-top: -308px;
+
+}
+
+.movie--description:hover {
+    opacity: 0.8;
+    z-index: 11111;
+}
+
+.movie--description * {
+    margin: 10px;
+}
+
+.contenedor--movies--starts {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.movie--genero {
+    margin-left: 10px;
+}
+
+.movie--starts {
+    margin-right: 10px;
+}
+
+.movie--button {
+    color: white;
+    background-color: #7b2abf;
+    margin: 10px 0px 20px;
+    padding: 10px 95px;
+    font-size: 17px;
+    border-radius: 10px;
+}
+
+.movie--button:hover {
+    color: var(--purple);
+    background-color: #02021C;
+    border-color: #7b2abf;
+}
+
+
+.item__star--purple {
+    filter: var(--purple-fil);
+}
+
+.item__star--gray {
+    filter: var(--purple-gray-fil);
+}
+
+
+.name__category{
+
+    color: white;
+    text-align: center;
+    font-size: xx-large;
+}

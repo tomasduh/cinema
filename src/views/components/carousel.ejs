@@ -1,0 +1,20 @@
+<% const imageUrl = 'https://image.tmdb.org/t/p/w500/' %>
+  <div class="contenedor-carousel">
+        <div class="carousel">
+            <div class="carousel__contenedor">
+                <div class="carousel__lista" id="glider1">
+                    <%  moviesRecommended.forEach((result) =>{%>
+                        <button class="mcc-go-to-detail" id="<%= result.id %>">
+                            <div class="carousel__elemento2" >
+                                <img src="<%- result.poster_path != null ? ((result.poster_path).includes('.com') ? result.poster_path : (imageUrl + result.poster_path )) : result.poster_path  %>" alt="<%= result.title %>">
+                                <div class="titulo2">
+                                    <p class="carousel__titulo2"> <%= result.title %></p>
+                                </div>
+                            </div>
+                        </button>
+                    <%})%>
+                </div>            
+            </div>
+            <div role="tablist" id="dots1" class="carousel__indicadores"></div>
+        </div>
+    </div>

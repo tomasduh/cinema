@@ -1,0 +1,14 @@
+
+.component--order {
+    background-color: #02021C;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 17px;
+    border-radius: 20px;
+}
+
+.component--order__size {
+    width: 300px;
+    font-size: 15px;
+}

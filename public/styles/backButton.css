@@ -1,0 +1,9 @@
+.od-icon-arrow:hover {
+    cursor: pointer;
+}
+
+.od-arrow{
+    position: absolute;
+    top: 35px;
+    right: calc(100% - 50% + 250px);
+}
